@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Галерея пончиков
+{% endblock %}
+
+{% block content %}
+    <h2>Вкусная фотогалерея</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <img src="{% static 'main/image/donut1.jpg' %}" class="img-fluid rounded" alt="Шоколадный пончик">
+        </div>
+        <div class="col">
+            <img src="{% static 'main/image/donut2.jpg' %}" class="img-fluid rounded" alt="Классический пончик с глазурью">
+        </div>
+        <div class="col">
+            <img src="{% static 'main/image/donut3.jpg' %}" class="img-fluid rounded" alt="Пончики с посыпкой">
+        </div>
+    </div>
+    <p class="mt-3 text-muted">* Все фотографии сделаны в наших мастерских или присланы подписчиками</p>
+{% endblock %}
