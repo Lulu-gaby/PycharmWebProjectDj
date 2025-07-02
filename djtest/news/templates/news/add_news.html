@@ -1,0 +1,17 @@
+{% extends 'base/layout.html' %}
+
+{% block title %}
+    <title>Добавить новость</title>
+{% endblock %}
+
+{% block content %}
+<h2>Добавить новость</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+
+<a href="{% url 'home' %}">Назад к новостям</a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base/layout.html' %}
+
+{% block title %}
+    <title>Новостная страница</title>
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Новостная страница</h1>
+{% for new in news %}
+	<div>
+		<h3> {{ new.title }} </h3>
+		<p>Автор:</strong> {{ new.user.username }}</p>
+		<p>Дата публикации:</strong> {{ new.pub_date }}</p>
+		<p>Краткое описание:</strong> {{ new.short_description }}</p>
+		<p>Текст:</strong> {{ new.text }}</p>
+	</div>
+{% endfor %}
+
+<p class="text-muted">Сайт создан с помощью Django — мощного фреймворка на Python.</p>
+{% endblock %}

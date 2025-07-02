@@ -1,8 +1,19 @@
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
 def data(request):
-    return HttpResponse('<h1>Ура!!! Все получилось на Django!</h1>')
+    return render(request, 'base/data.html')
 def test(request):
-    return HttpResponse('<h1>Ура!!! Это вторая страница моего проекта на Django</h1>')
+    return render(request,  'base/test.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
