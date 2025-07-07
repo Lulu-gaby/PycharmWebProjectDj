@@ -1,0 +1,23 @@
+{% extends 'films/layout.html' %}
+
+{% block title %}
+    Список фильмов
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Список фильмов</h2>
+
+    {% for film in films %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title">{{ film.title }}</h4>
+                <p class="card-text"><strong>Описание:</strong> {{ film.description }}</p>
+                <p class="card-text"><strong>Отзыв:</strong> {{ film.comments }}</p>
+                <p class="card-text text-muted"><small>Дата: {{ film.date|date:"d.m.Y H:i" }}</small></p>
+            </div>
+        </div>
+    {% empty %}
+        <p>Фильмы пока не добавлены.</p>
+    {% endfor %}
+{% endblock %}

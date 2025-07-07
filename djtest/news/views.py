@@ -15,7 +15,7 @@ def add_news(request):
             news = form.save(commit=False)
             news.user = request.user
             news.save()
-            return redirect('home')
+            return redirect('news_home')
     else:
         form = NewsForm()
     return render(request, 'news/add_news.html', {'form': form})
